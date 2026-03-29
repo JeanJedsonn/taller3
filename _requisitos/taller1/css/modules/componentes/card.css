@@ -1,0 +1,70 @@
+/* div general de la tarjeta, contiene las cosas y separa las secciones*/
+.card {
+    display: grid;              /* es un contenedor hijo y a la vez padre*/
+    border: 1px solid #ccc;   /* borde de la tarjeta*/
+    border-radius: 5px;         /* redondeo de la tarjeta*/
+    padding: 10px;              /* padding de la tarjeta*/
+    margin: 10px;               /* margen de la tarjeta*/
+    text-align: center;         /* alineacion del texto*/
+}
+
+/* card-header: encabezado de la tarjeta*/
+.card-header {
+    display: grid;                  /* es un contenedor hijo*/
+    grid-template-columns: 1fr 2fr; /* 1fr es el 100% del espacio disponible, 2fr es el 200% del espacio disponible*/
+    padding-bottom: 10px;           /* padding inferior 10px*/
+    align-items: center;            /* alineacion vertical*/
+    justify-items: center;          /* alineacion horizontal*/
+}
+
+.card-header img {
+    width: 100%;
+    max-width: 256px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card-info {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* card-footer: pie de la tarjeta*/
+.card-footer {
+    display: flex;              /* es un contenedor hijo*/
+    justify-content: flex-end;  /* alineacion horizontal desde la derecha*/
+    border-top: 1px solid #ccc; /* borde superior*/
+    padding-top: 10px;          /* padding superior*/
+}
+
+/* decoracion del boton */
+.card-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #bbb;
+}
+
+/* list-card: lista de tarjetas*/
+.list-card {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}

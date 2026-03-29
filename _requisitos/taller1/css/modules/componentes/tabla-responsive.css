@@ -1,0 +1,58 @@
+/* ===================================
+   TABLA
+   =================================== */
+
+/* e.- Tabla: bordes, anchura, color, espacios entre bordes y celdas,
+   texto alineado, título con color de fondo */
+
+/* Contenedor de la tabla */
+.table-responsive {
+    flex: 1;                            /* Permite que el contenedor ocupe todo el espacio disponible */
+    overflow-x: auto;                   /* Permite desplazarse horizontalmente */
+}
+
+/* Tabla */
+.tabla-datos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid #667eea;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera de la tabla */
+.tabla-datos th {
+    background-color: #764ba2;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #667eea;
+}
+
+/* Celdas de la tabla */
+.tabla-datos td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Filas de la tabla */
+.tabla-datos tbody tr {
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+/* Filas pares de la tabla */
+.tabla-datos tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Filas impares de la tabla */
+.tabla-datos tbody tr:hover {
+    background-color: #e3f2fd;
+}
+

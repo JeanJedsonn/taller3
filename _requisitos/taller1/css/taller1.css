@@ -1,0 +1,22 @@
+/* ===================================
+   TALLER 1 - ESTILOS PRINCIPALES
+   =================================== */
+
+/* constantes globales */
+@import url('modules/globales/footer.css');
+@import url('modules/globales/header.css');
+@import url('modules/globales/general.css');
+@import url('modules/globales/sidebar.css');
+@import url('modules/globales/textos.css');
+@import url('modules/componentes/chart.css');
+
+/* delimitadores */
+@import url('modules/delimitadores/content.css');
+@import url('modules/delimitadores/sections.css');
+
+/* componentes */
+@import url('modules/componentes/card.css');
+@import url('modules/componentes/tabla-responsive.css');
+/*@import url('modules/componentes/decoradores.css');*/
+
+@import url('responsive.css');

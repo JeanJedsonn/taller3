@@ -1,0 +1,40 @@
+/* ===================================
+   DECORADORES DE TITULOS
+   =================================== */
+
+
+#h2-generico{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+/* aun sin definir*/
+#h2-estilo1{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+#h2-estilo2{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+#h2-estilo3{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+#h2-estilo4{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
