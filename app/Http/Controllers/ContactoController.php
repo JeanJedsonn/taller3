@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Controlador del taller 2 adaptado al taller 3
 class ContactoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra todos los contactos
      */
     public function index()
     {
@@ -16,11 +17,11 @@ class ContactoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo contacto
      */
     public function create()
     {
-        // Si tienes una vista para crear separada: return view('rutas_taller3.crear');
+        return view('rutas_taller3.formulario');
     }
 
     /**
@@ -31,7 +32,7 @@ class ContactoController extends Controller
         $validated = $this->validarContacto($request);
         \App\Models\Contacto::create($validated);
 
-        return back()->with('success', 'Contacto agregado correctamente.');
+        return redirect()->route('contacto')->with('success', 'Contacto agregado correctamente.');
     }
 
     /**
@@ -48,7 +49,8 @@ class ContactoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $contacto = \App\Models\Contacto::findOrFail($id);
+        return view('rutas_taller3.formulario', compact('contacto'));
     }
 
     /**

@@ -4,12 +4,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
 
+// Rutas del taller 1
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
 Route::get('/tabla', function() {
-    return view('rutas_taller3.ventas');
+    return view('rutas_taller3.tabla');
 })->name('tabla');
 
 Route::get('/acerca', function() {
@@ -17,16 +18,15 @@ Route::get('/acerca', function() {
 })->name('acerca');
 
 Route::get('/juego', function() {
-    return view('rutas_taller3.juegos');
+    return view('rutas_taller3.juego');
 })->name('juego');
 
-// We use the ContactoController for contact methods.
-// We protect it with the 'auth' middleware provided by Laravel Breeze.
-Route::middleware(['auth'])->group(function () {
-    Route::resource('contactos', ContactoController::class)->names([
-        'index' => 'contacto' // Rename index to match the existing 'contacto' route expectation from base.blade.php
-    ]);
-});
+// Rutas del taller 2 adaptadas
+// Resource controller sin Auth temporalmente para pruebas
+Route::resource('contactos', ContactoController::class)->names([
+    'index' => 'contacto'
+]);
+// Fin bloque resource
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,9 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php'; REMOVIDO TEMPORALMENTE PARA PRUEBAS
 
-/* 
+/*
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
