@@ -1,0 +1,41 @@
+/* Usado en: El contenedor principal que aisla esta vista */
+.taller2-scope {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Usado en: El formulario en contacto.blade.php, ahora lo aplicamos a todo el scope o a container si existiera. */
+.taller2-scope .container-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 650px;
+}
+
+/* Usado en: <h2 id="form-title"> (Título superior del formulario) */
+.taller2-scope h2 { 
+    text-align: center; 
+    color: var(--primary); 
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Usado en: <div class="section"> (Cajones para cargar archivo y buscar persona) */
+.taller2-scope .section {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #f1f5f9;
+    margin-bottom: 20px;
+}

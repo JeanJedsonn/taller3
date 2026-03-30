@@ -1,0 +1,9 @@
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --border: #cbd5e1;
+    --error: #ef4444;
+    --success: #10b981;
+}

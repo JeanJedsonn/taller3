@@ -1,0 +1,84 @@
+/* ===================================
+   HEADER Y TÍTULO PRINCIPAL
+   =================================== */
+
+/* b.- Título principal: tipo fuente, tamaño, estilo + imagen de fondo */
+header {
+    /* imagen de fondo */
+    background-image: linear-gradient(135deg, #a5b4fa 0%, #764ba2 100%);
+    background-size: cover;         /* cubre todo el header */
+    background-position: center;    /* centra la imagen */
+
+    padding: 30px 20px;             /* padding superior e inferior 30px, padding izquierdo y derecho 20px*/
+    color: white;                 /* color blanco del texto */
+    text-align: center;             /* texto centrado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* sombra */
+    border-radius: 20px;            /* bordes redondeados */
+    margin: 20px;                   /* margen superior e inferior 20px, margen izquierdo y derecho 20px*/
+}
+
+/* estilo del h1 en el header*/
+header h1 {
+    margin: 0 0 20px 0;
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   MENÚ PRINCIPAL
+   =================================== */
+
+/* d.- Menú principal: enlaces sin visitar color azul sin subrayar,
+   hover con color de fondo, accedidos color morado */
+.menu-principal {
+    margin-top: 15px;
+}
+
+/* menu principal: flexbox, permite que los elementos se adapten */
+.menu-principal div {
+    display: flex;
+    justify-content: center;
+}
+
+/* ul: lista de enlaces*/
+.menu-principal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-principal li {
+    display: inline-block;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 12px 25px;
+    color: #0066cc;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu-principal a:hover {
+    background-color: #ffd700;
+    color: #333;
+}
+
+.menu-principal a:visited {
+    color: #800080;
+}
+
+.menu-principal a.active {
+    background-color: #0067cc;
+    color: white;
+}

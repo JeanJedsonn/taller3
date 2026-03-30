@@ -1,0 +1,71 @@
+/* Usado en: <form id="dynamic-form" class="form-grid"> (El contenedor de 2 columnas general) */
+.taller2-scope .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Usado en: <div class="form-group"> (Cada cajón individual que agrupa un Label y su Input) */
+.taller2-scope .form-group { 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Usado en: .form-group.full-width (Dirección y Arreglos para que ocupen toda la fila horizontal) */
+.taller2-scope .full-width {
+    grid-column: span 2;
+}
+
+/* Usado en: <div class="section search-row"> (Cajón superior buscador) */
+.taller2-scope .search-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.taller2-scope .search-row input {
+    flex: 1;
+}
+
+.taller2-scope label { 
+    font-size: 0.9rem;
+    font-weight: 600; 
+    margin-bottom: 6px; 
+    color: #475569;
+}
+
+/* Usado en: Todos los inputs (Texto, Números, Correos) y <select> (Listas desplegables) */
+.taller2-scope input, .taller2-scope select {
+    width: 100%; 
+    padding: 10px 12px; 
+    border: 1px solid var(--border); 
+    border-radius: 6px; 
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.taller2-scope input:read-only {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+    color: #475569;
+}
+
+.taller2-scope input:focus, .taller2-scope select:focus { 
+    border-color: var(--primary); 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 600px) {
+    .taller2-scope .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .taller2-scope .full-width {
+        grid-column: span 1;
+    }
+    .taller2-scope .search-row {
+        flex-direction: column;
+    }
+}

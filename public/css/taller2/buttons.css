@@ -1,0 +1,52 @@
+/* Usado en: Toda etiqueta <button> del index.html */
+.taller2-scope button {
+    width: 100%; 
+    padding: 12px; 
+    background: var(--primary); 
+    color: white;
+    border: none; 
+    border-radius: 6px; 
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.taller2-scope button:hover { 
+    background: var(--primary-hover); 
+}
+
+.taller2-scope .btn-add:hover { 
+    background: #059669; 
+}
+
+/* Usado en: <button class="btn-gray"> (Descargar JSON) */
+.taller2-scope .btn-gray { 
+    background: #64748b; 
+    margin-top: 15px; 
+}
+
+.taller2-scope .btn-gray:hover { 
+    background: #475569; 
+}
+
+.taller2-scope .submit-btn {
+    grid-column: span 2;
+    margin-top: 15px;
+    background: var(--success);
+}
+
+.taller2-scope .submit-btn:hover { 
+    background: #059669; 
+}
+
+/* Usado en: <button onclick="buscar()"> (Botón de Buscar en la cabecera) */
+.taller2-scope .search-row button {
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .taller2-scope .submit-btn {
+        grid-column: span 1;
+    }
+}

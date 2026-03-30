@@ -1,0 +1,59 @@
+/* c.- Párrafos: margen, familia fuentes, estilo, tamaño, alineación.
+   Incluir enlace. Una línea subrayada, otra en negrita y centrada */
+
+
+
+/* uso principal en acerca.html*/
+.enlace-decorado {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid #0066cc;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.enlace-decorado:hover {
+    color: #004488;
+    border-color: #004488;
+}
+
+.enlace-decorado:visited {
+    color: #800080;
+    border-color: #800080;
+}
+
+
+/* Specific Line: Underlined & Distinct Style */
+.span-linea-subrayada {
+    text-decoration: underline;
+    font-style: italic;
+    color: #555;
+    background-color: #fff9c4;
+}
+
+/* Specific Line: Bold & Centered */
+.span-linea-destacada {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    color: #d32f2f;
+    font-size: 1.1em;
+}
+
+/* Titulo generico */
+.h2-generico{
+    color: #667eea;
+    margin-top: 0;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+/* uso principal en acerca.html*/
+.paragraph-decorado {
+    margin: 15px 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+}

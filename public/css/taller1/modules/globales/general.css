@@ -1,0 +1,46 @@
+/* ===================================
+   ESTILOS GENERALES
+   =================================== */
+/* a.- Página en general: imagen de fondo */
+html,
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/img/background-vector.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    line-height: 1.6;
+    color: #333;
+}
+
+/*wapper: contenedor principal*/
+.wrapper {
+    margin: 0 auto;             /*centrar el contenedor*/
+    min-height: 100%;           /*altura minima*/
+
+    display: flex;              /*flexbox, permite que los elementos se adapten */
+    flex-direction: column;     /*direccion vertical*/
+}
+
+/* container: contenedor de sidebar y contenido principal*/
+.container {
+    display: flex;  /*flexbox, permite que los elementos se adapten */
+    gap: 20px;      /* separacion entre sidebar y contenido principal*/
+    padding: 20px;  /* padding superior e inferior 20px, padding izquierdo y derecho 20px*/
+    flex: 1;        /* es el 100% del espacio disponible*/
+}
+
+/* contenido principal*/
+.contenido-principal {
+    flex: 1;            /* usa todo el espacio disponible, encoje */
+    min-width: 0;       /* tamaño minimo*/
+    background-color: white;
+    padding: 30px;      /* padding superior e inferior 30px, padding izquierdo y derecho 30px*/
+    border-radius: 8px; /* redondeo de la seccion*/
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra de la seccion*/
+}
+

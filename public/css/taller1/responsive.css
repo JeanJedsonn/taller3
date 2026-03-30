@@ -1,0 +1,118 @@
+/* ===================================
+   MEDIA QUERIES
+   =================================== */
+
+/* >= 980px: contenedor principal 95%, contenido 65%, menú 30% */
+@media screen and (min-width: 700px) and (max-width: 980px) {
+    .wrapper {
+        width: 95%;
+    }
+
+    .contenido-principal {
+        width: 65%;
+    }
+
+    .sidebar {
+        width: 30%;
+    }
+}
+
+/* Entre 700px y 979px: ajuste intermedio */
+/* sidebar y contenido principal en columna */
+@media screen and (min-width: 501px) and (max-width: 699px) {
+
+    .menu-principal ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .menu-principal a {
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        width: 95%;
+    }
+
+    .contenido-principal {
+        width: 1fr;
+    }
+
+    .sidebar {
+        width: 1fr;
+    }
+
+    /* tabla de datos */
+    .tabla-datos {
+        font-size: 0.9em;
+    }
+
+    .tabla-datos th,
+    .tabla-datos td {
+        padding: 8px 5px;
+    }
+}
+
+/* <= 480px: altura cabecera automática, fuente h1 más pequeña,
+   barra lateral entre header y content */
+@media screen and (max-width: 500px) {
+
+    /* cabecera */
+    header {
+        height: auto;
+        /* altura automática */
+        padding: 20px 15px;
+        /* padding */
+    }
+
+    header h1 {
+        font-size: 1.5em;
+        /* tamaño de fuente más pequeño */
+        margin-bottom: 15px;
+        /* margen inferior */
+    }
+
+    .menu-principal ul {
+        flex-direction: column;
+        /* menu en columna */
+        gap: 5px;
+        /* separacion entre enlaces */
+    }
+
+    .menu-principal a {
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    /* contenedor */
+    .container {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .contenido-principal {
+        width: 1fr;
+    }
+
+    /* barra lateral */
+    .sidebar {
+        order: 0;
+        margin-bottom: 20px;
+        width: 1fr;
+    }
+
+    /* tabla de datos (solo cambia tamaño de fuente y padding) */
+    .tabla-datos {
+        font-size: 0.9em;
+    }
+
+    .tabla-datos th,
+    .tabla-datos td {
+        padding: 8px 5px;
+    }
+}

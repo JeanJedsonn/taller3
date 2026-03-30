@@ -1,0 +1,39 @@
+.chart {
+    display: grid;
+    row-gap: 10px;
+    border: 2px solid #2196f3;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    align-content: center; /* Centrar las barras verticalmente para evitar espacios excesivos */
+    list-style: none;      /* Quitar los puntos de la lista */
+    margin: 0;
+}
+
+.chart-bar {
+    grid-column: span attr(data-value number);
+    grid-row: sibling-index();
+    max-height: 40px;
+    border-radius: 1vw;
+    background: rgb(205, 3, 20);
+}
+
+.seccion-grafica {
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #2196f3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Regla .chart ul eliminada ya que .chart se aplica directamente al ul en el HTML */
+
+.chart li {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-indent: 0;
+    font-size: 1rem;
+}
