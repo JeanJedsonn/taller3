@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // Rutas del taller 1
 Route::get('/', function () {
-    return view('welcome');
+    return view('taller3');
 })->name('home');
 
 Route::get('/tabla', function() {
