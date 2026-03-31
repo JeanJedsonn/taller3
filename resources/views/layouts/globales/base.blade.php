@@ -16,6 +16,8 @@
 </head>
 
 <body class="bg-light">
+    <div class="wrapper">
+
         <!-- Cabecera -->
         {{-- No se hace un template porque se usa en toda la pagina --}}
         <header>
@@ -65,22 +67,21 @@
                 @yield('contenido')
             </main>
         </div>
+    
+        <!-- pide de pagina-->
+        <footer>
+            <p>&copy; 2026 Taller 1 - Desarrollo Web | Fecha de entrega: 12-02-2026</p>
+            <div class="validacion">
+                <a href="http://validator.w3.org/check?uri=referer" target="_blank">
+                    <img src="{{ asset('img/html401.png') }}" alt="Valid HTML 4.01" height="31" width="88">
+                </a>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+                    <img src="{{ asset('img/vcss.png') }}" alt="Valid CSS" height="31" width="88">
+                </a>
+            </div>
+        </footer>
+    
     </div>
-    
-    
-    <!-- pide de pagina-->
-    <footer>
-        <p>&copy; 2026 Taller 1 - Desarrollo Web | Fecha de entrega: 12-02-2026</p>
-        <div class="validacion">
-            <a href="http://validator.w3.org/check?uri=referer" target="_blank">
-                <img src="./img/html401.png" alt="Valid HTML 4.01" height="31" width="88">
-            </a>
-            <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
-                <img src="./img/vcss.png" alt="Valid CSS" height="31" width="88">
-            </a>
-        </div>
-    </footer>
-
 </body>
 
 </html>

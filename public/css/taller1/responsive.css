@@ -4,10 +4,6 @@
 
 /* >= 980px: contenedor principal 95%, contenido 65%, menú 30% */
 @media screen and (min-width: 700px) and (max-width: 980px) {
-    .wrapper {
-        width: 95%;
-    }
-
     .contenido-principal {
         width: 65%;
     }
