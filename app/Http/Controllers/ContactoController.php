@@ -85,10 +85,10 @@ class ContactoController extends Controller
     {
         $uniqueRule = $id ? "unique:contactos,cedula,{$id}" : "unique:contactos,cedula";
 
-        return $request->validate([
-            'cedula' => ['required', 'string', $uniqueRule],
-            'nombre' => 'required|string|max:255',
-            'apellido' => 'required|string|max:255',
+        $reglas = [
+            'cedula' => ['required', 'string', 'regex:/^[0-9]+$/', $uniqueRule],
+            'nombre' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\']+$/u'],
+            'apellido' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s\']+$/u'],
             'edad' => 'required|integer|min:15|max:90',
             'genero' => 'required|in:femenino,masculino,otros',
             'numero_telefono_1' => 'required|string|regex:/^\d{4}-\d{7}$/',
@@ -99,6 +99,40 @@ class ContactoController extends Controller
             'direccion' => 'required|string|max:500',
             'departamento' => 'required|string|max:255',
             'cargo' => 'required|string|max:255',
-        ]);
+        ];
+
+        $mensajes = [
+            'required' => 'El campo :attribute es obligatorio.',
+            'string' => 'El campo :attribute debe ser texto.',
+            'max' => 'El campo :attribute no puede exceder :max caracteres.',
+            'min' => 'El campo :attribute debe ser al menos :min.',
+            'integer' => 'El campo :attribute debe ser un número entero.',
+            'email' => 'El campo :attribute debe ser un correo válido.',
+            'unique' => 'El valor de :attribute ya está en uso.',
+            'in' => 'El valor seleccionado para :attribute no es válido.',
+            'cedula.regex' => 'La cédula debe contener únicamente números.',
+            'nombre.regex' => 'El nombre solo puede contener letras y espacios.',
+            'apellido.regex' => 'El apellido solo puede contener letras y espacios.',
+            'numero_telefono_1.regex' => 'El teléfono principal debe tener el formato 0000-0000000.',
+            'numero_telefono_2.regex' => 'El teléfono secundario debe tener el formato 0000-0000000.',
+        ];
+
+        $atributos = [
+            'cedula' => 'cédula',
+            'nombre' => 'nombre',
+            'apellido' => 'apellido',
+            'edad' => 'edad',
+            'genero' => 'género',
+            'numero_telefono_1' => 'teléfono principal',
+            'numero_telefono_2' => 'teléfono secundario',
+            'correo_electronico_1' => 'correo electrónico principal',
+            'correo_electronico_2' => 'correo electrónico secundario',
+            'estado_civil' => 'estado civil',
+            'direccion' => 'dirección',
+            'departamento' => 'departamento',
+            'cargo' => 'cargo',
+        ];
+
+        return $request->validate($reglas, $mensajes, $atributos);
     }
 }

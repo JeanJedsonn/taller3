@@ -1,0 +1,182 @@
+/* ===== CONFIGURACIONES DE CONTACTO ===== */
+
+/* Cabeceras compartidas (Index y Mostrar) */
+.contacto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Títulos */
+.contacto-title {
+    margin: 0;
+}
+
+.contacto-show-title {
+    margin: 0;
+    color: #1e293b;
+}
+
+/* Alertas de Éxito y Error */
+.contacto-alert-success {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #047857;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.contacto-alert-danger {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.contacto-alert-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Tabla Vacía */
+.contacto-empty-table {
+    padding: 15px;
+    text-align: center;
+    color: #64748b;
+}
+
+/* Contenedores de Formulario */
+.contacto-form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.contacto-form {
+    margin: auto;
+    width: 100%;
+    max-width: 650px;
+}
+
+.contacto-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Scope de visualización del Contacto */
+.contacto-show-scope {
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.contacto-show-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.contacto-show-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contacto-show-subtitle {
+    color: #334155;
+    margin-top: 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.contacto-show-p {
+    margin: 10px 0;
+}
+
+.contacto-show-p-tel {
+    margin: 10px 0 5px 0;
+}
+
+.contacto-show-span {
+    color: #475569;
+}
+
+.contacto-show-ul {
+    color: #475569;
+    margin: 0 0 10px 0;
+    padding-left: 20px;
+}
+
+.contacto-show-actions {
+    margin-top: 30px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Botones específicos de contacto */
+.btn-contacto-create {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    display: inline-block;
+    border-radius: 6px;
+    background: var(--primary);
+    margin-top: 0;
+}
+
+.btn-contacto-back {
+    background-color: gray;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+.btn-contacto-back-alt {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    display: inline-block;
+    border-radius: 6px;
+    background: #64748b;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.btn-contacto-warning {
+    text-decoration: none;
+    background: #fbbf24;
+    color: #78350f;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-contacto-danger {
+    background: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -6,20 +6,20 @@
 @endpush
 
 @section('contenido')
-<div class="taller2-scope" style="">
+<div class="taller2-scope">
     <!-- titulo -->
     <h2 id="form-title">{{ isset($contacto) ? 'Editar Contacto' : 'Crear Nuevo Contacto' }}</h2>
 
     <!-- boton regresar -->
-    <div style="width: 100%; max-width: 650px; margin: 20px auto;">
-        <a href="{{ route('contacto') }}" class="btn-gray" style="text-decoration: none; padding: 10px 15px; color: white; display: inline-block; border-radius: 6px;">&laquo; Volver a la Lista</a>
+    <div class="contacto-form-wrapper">
+        <a href="{{ route('contacto') }}" class="btn-contacto-back-alt">&laquo; Volver a la Lista</a>
     </div>
 
     
     <!-- Campo para mostrar los errores -->
     @if ($errors->any())
-        <div style="background: #fee2e2; border: 1px solid #ef4444; color: #b91c1c; padding: 10px; border-radius: 6px; margin-bottom: 20px; width: 100%; max-width: 650px;">
-            <ul style="margin: 0; padding-left: 20px;">
+        <div class="contacto-alert-danger">
+            <ul class="contacto-alert-list">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -29,13 +29,13 @@
 
     <!-- mensaje de exito -->
     @if (session('success'))
-        <div style="background: #d1fae5; border: 1px solid #10b981; color: #047857; padding: 10px; border-radius: 6px; margin-bottom: 20px; width: 100%; max-width: 650px;">
+        <div class="contacto-alert-success">
             {{ session('success') }}
         </div>
     @endif
 
     <!-- formulario para editar / crear -->
-    <form id="dynamic-form" class="form-grid" action="{{ isset($contacto) ? route('contactos.update', $contacto->id) : route('contactos.store') }}" method="POST" style="margin: auto; width: 100%; max-width: 650px;">
+    <form id="dynamic-form" class="form-grid contacto-form" action="{{ isset($contacto) ? route('contactos.update', $contacto->id) : route('contactos.store') }}" method="POST">
         @csrf
         
         <!-- si es editar, se agrega el metodo put -->
@@ -100,7 +100,7 @@
                 $tel2 = old('numero_telefono_2', $contacto->numero_telefono_2 ?? '');
             @endphp
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="contacto-grid-2">
                 <input type="text" id="input_tel1" name="numero_telefono_1" placeholder="Principal (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel1 }}" required>
                 <input type="text" id="input_tel2" name="numero_telefono_2" placeholder="Secundario (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel2 }}">
             </div>
@@ -113,7 +113,7 @@
                 $cor1 = old('correo_electronico_1', $contacto->correo_electronico_1 ?? '');
                 $cor2 = old('correo_electronico_2', $contacto->correo_electronico_2 ?? '');
             @endphp
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="contacto-grid-2">
                 <input type="email" id="input_correo1" name="correo_electronico_1" placeholder="Correo Principal" value="{{ $cor1 }}" required>
                 <input type="email" id="input_correo2" name="correo_electronico_2" placeholder="Correo Secundario" value="{{ $cor2 }}">
             </div>

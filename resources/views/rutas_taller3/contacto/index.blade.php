@@ -8,13 +8,13 @@
 @section('contenido')
 <div class="taller2-scope">
     
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 20px;">
-        <h2 id="form-title" style="margin: 0;">Lista de Contactos</h2>
-        <a href="{{ route('contactos.create') }}" class="btn-gray" style="text-decoration: none; padding: 10px 15px; color: white; display: inline-block; border-radius: 6px; background: var(--primary); margin-top: 0;">+ Crear Contacto</a>
+    <div class="contacto-header">
+        <h2 id="form-title" class="contacto-title">Lista de Contactos</h2>
+        <a href="{{ route('contactos.create') }}" class="btn-contacto-create">+ Crear Contacto</a>
     </div>
 
     @if (session('success'))
-        <div style="background: #d1fae5; border: 1px solid #10b981; color: #047857; padding: 10px; border-radius: 6px; margin-bottom: 20px; width: 100%;">
+        <div class="contacto-alert-success">
             {{ session('success') }}
         </div>
     @endif
@@ -47,7 +47,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3" style="padding: 15px; text-align: center; color: #64748b;">No hay contactos registrados.</td>
+                        <td colspan="3" class="contacto-empty-table">No hay contactos registrados.</td>
                     </tr>
                 @endforelse
             </tbody>
