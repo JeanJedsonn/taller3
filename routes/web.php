@@ -1,47 +1,52 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
 
-// Rutas del taller 1
-Route::get('/', function () {
-    return view('taller3');
-})->name('home');
 
-Route::get('/tabla', function() {
-    return view('rutas_taller3.tabla');
-})->name('tabla');
+// ==========================================
+// RUTAS DE AUTENTICACIÓN (Práctica Manual)
+// ==========================================
 
-Route::get('/acerca', function() {
-    return view('rutas_taller3.acerca');
-})->name('acerca');
+// 1. Grupo 'guest' (Invitados):
+// Si el usuario ya inició sesión, será redirigido al home "/" automáticamente 
+// para que no vea de nuevo Login o Registro. (Ver app/Http/Middleware/RedirectIfAuthenticated.php)
+Route::middleware('guest')->group(function () {
+    Route::get('/registro', [AuthController::class, 'showRegister'])->name('registro.show');
+    Route::post('/registro', [AuthController::class, 'register'])->name('registro');
+    
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
+    // POST /login se encarga de procesar el inicio de sesión
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+});
 
-Route::get('/juego', function() {
-    return view('rutas_taller3.juego');
-})->name('juego');
-
-// Rutas del taller 2 adaptadas
-// Resource controller sin Auth temporalmente para pruebas
-Route::resource('contactos', ContactoController::class)->names([
-    'index' => 'contacto'
-]);
-// Fin bloque resource
-
+// 2. Grupo 'auth' (Autenticados):
+// Rutas donde DEBES haber iniciado sesión para poder entrar.
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // === Rutas Principales del Taller (Protegidas) ===
+    Route::get('/', function () {
+        return view('taller3');
+    })->name('home');
+
+    Route::get('/tabla', function() {
+        return view('rutas_taller3.tabla');
+    })->name('tabla');
+
+    Route::get('/acerca', function() {
+        return view('rutas_taller3.acerca');
+    })->name('acerca');
+
+    Route::get('/juego', function() {
+        return view('rutas_taller3.juego');
+    })->name('juego');
+
+    Route::resource('contactos', ContactoController::class)->names([
+        'index' => 'contacto'
+    ]);
+    // ===============================================
+
+    // Nota: El botón para cerrar sesión en la vista suele ser un <form method="POST">
+    // para estar protegidos con @csrf y evitar que un link te cierre la sesión accidentalmente.
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-//require __DIR__.'/auth.php'; REMOVIDO TEMPORALMENTE PARA PRUEBAS
-
-/*
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
-});
-*/
-
-
-// Rutas de settings
-require __DIR__.'/settings.php';

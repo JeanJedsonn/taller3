@@ -25,12 +25,33 @@
             <nav class="menu-principal">
                 <div>
                     <ul>
-                        {{-- @class cambia la clase segun la condicion (ser la ruta activa) --}}
-                        <li><a href="{{ route('home') }}" @class(['active' => Route::is('home')])>Inicio</a></li>
-                        <li><a href="{{ route('tabla') }}" @class(['active' => Route::is('tabla')])>Ventas</a></li>
-                        <li><a href="{{ route('acerca') }}" @class(['active' => Route::is('acerca')])>Acerca De</a></li>
-                        <li><a href="{{ route('juego') }}" @class(['active' => Route::is('juego')])>Juegos</a></li>
-                        <li><a href="{{ route('contacto') }}" @class(['active' => Route::is('contactos')])>Contacto</a></li>
+                        {{-- Si no está logueado, desactivamos visualmente los botones --}}
+                        @php
+                            $isDisabled = !Auth::check();
+                            $disableStyle = $isDisabled ? 'color: #94a3b8; pointer-events: none; opacity: 0.5; cursor: not-allowed; text-decoration: none;' : '';
+                        @endphp
+                        
+                        <li><a href="{{ $isDisabled ? '#' : route('home') }}" @class(['active' => Route::is('home')]) style="{{ $disableStyle }}">Inicio</a></li>
+                        <li><a href="{{ $isDisabled ? '#' : route('tabla') }}" @class(['active' => Route::is('tabla')]) style="{{ $disableStyle }}">Ventas</a></li>
+                        <li><a href="{{ $isDisabled ? '#' : route('acerca') }}" @class(['active' => Route::is('acerca')]) style="{{ $disableStyle }}">Acerca De</a></li>
+                        <li><a href="{{ $isDisabled ? '#' : route('juego') }}" @class(['active' => Route::is('juego')]) style="{{ $disableStyle }}">Juegos</a></li>
+                        <li><a href="{{ $isDisabled ? '#' : route('contacto') }}" @class(['active' => Route::is('contactos')]) style="{{ $disableStyle }}">Contacto</a></li>
+                        
+                        {{-- ===== Autenticación Manual ===== --}}
+                        @guest
+                            <li><a href="{{ route('login.show') }}" @class(['active' => Route::is('login.show')])>Ingresar</a></li>
+                            <li><a href="{{ route('registro.show') }}" @class(['active' => Route::is('registro.show')])>Registro</a></li>
+                        @else
+                            <li>
+                                {{-- El logout siempre debe ser por POST para evitar CSRF --}}
+                                <form action="{{ route('logout') }}" method="POST" style="display:inline; margin:0; padding:0;">
+                                    @csrf
+                                    <a href="#" onclick="event.preventDefault(); this.closest('form').submit();" style="color: #ffcccc;">
+                                        Salir ({{ Auth::user()->name }})
+                                    </a>
+                                </form>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </nav>
