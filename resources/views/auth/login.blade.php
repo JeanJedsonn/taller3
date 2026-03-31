@@ -6,7 +6,7 @@
 <div class="taller2-scope" style="max-width: 500px; margin: 0 auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
     <h2 style="text-align: center; margin-bottom: 20px;">Iniciar Sesión</h2>
 
-    {{-- 1. Mostramos los mensajes de error en caso de que las credenciales sean inválidas --}}
+    {{-- Muestra los mensajes de error en caso de que las credenciales sean inválidas --}}
     @if ($errors->any())
         <div style="background: #fee2e2; border: 1px solid #ef4444; color: #b91c1c; padding: 10px; border-radius: 6px; margin-bottom: 20px;">
             <ul style="margin: 0; padding-left: 20px;">
@@ -17,10 +17,10 @@
         </div>
     @endif
 
-    {{-- 2. El action apunta a la ruta POST del login (/login) --}}
+    {{-- El action apunta a la ruta POST del login (/login) --}}
     <form action="{{ url('/login') }}" method="POST">
         
-        {{-- 3. ESTO ES CRÍTICO. Directiva Blade para incluir un input oculto llamado _token 
+        {{-- Directiva Blade para incluir un input oculto llamado _token 
              que previene a tu sistema de ataques CSRF (Cross-Site Request Forgery). --}}
         @csrf
 
@@ -29,17 +29,17 @@
             <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Correo Electrónico:</label>
             {{-- value="{{ old('email') }}" permite que, si recarga por error, el usuario no pierda lo que ya escribió --}}
             <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus 
-                   style="width: 98%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
         {{-- Entrada de la Contraseña --}}
         <div style="margin-bottom: 20px;">
             <label for="password" style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña:</label>
             <input type="password" id="password" name="password" required 
-                   style="width: 98%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
-        {{-- Botón de Enviar --}}
+        {{-- Boton de Enviar --}}
         <button type="submit" 
                 style="width: 100%; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 4px; font-size: 16px; cursor: pointer;">
             Ingresar

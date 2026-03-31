@@ -27,21 +27,21 @@
         <div style="margin-bottom: 15px;">
             <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre Completo:</label>
             <input type="text" id="name" name="name" value="{{ old('name') }}" required autofocus 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
         {{-- Campo de Correo Electrónico --}}
         <div style="margin-bottom: 15px;">
             <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Correo Electrónico:</label>
             <input type="email" id="email" name="email" value="{{ old('email') }}" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
         {{-- Campo de Contraseña --}}
         <div style="margin-bottom: 15px;">
             <label for="password" style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña (mínimo 8 caract.):</label>
             <input type="password" id="password" name="password" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
         {{-- Confirmación de Contraseña --}}
@@ -50,7 +50,7 @@
                  cuando en el validador requerimos la regla 'confirmed' --}}
             <label for="password_confirmation" style="display: block; margin-bottom: 5px; font-weight: bold;">Confirmar Contraseña:</label>
             <input type="password" id="password_confirmation" name="password_confirmation" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
         </div>
 
         {{-- Botón Enviar --}}
