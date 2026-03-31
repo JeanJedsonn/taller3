@@ -152,12 +152,30 @@ class AuthController extends Controller
      */
     public function resetPasswordWithAnswers(Request $request)
     {
-        $request->validate([
+        $reglas = [
             'email' => 'required|email|exists:users,email',
             'security_answer_1' => 'required|string',
             'security_answer_2' => 'required|string',
             'password' => 'required|string|min:8|confirmed',
-        ]);
+        ];
+
+        $mensajes = [
+            'required' => 'El campo :attribute es obligatorio.',
+            'email' => 'El :attribute debe tener un formato válido.',
+            'exists' => 'No existe ninguna cuenta asociada a este :attribute.',
+            'string' => 'El campo :attribute debe ser texto válido.',
+            'min' => 'La :attribute debe tener un mínimo de :min caracteres.',
+            'confirmed' => 'La confirmación de la :attribute no coincide.',
+        ];
+
+        $atributos = [
+            'email' => 'correo electrónico',
+            'security_answer_1' => 'primera respuesta secreta',
+            'security_answer_2' => 'segunda respuesta secreta',
+            'password' => 'contraseña',
+        ];
+
+        $request->validate($reglas, $mensajes, $atributos);
 
         $user = User::where('email', $request->email)->first();
 
