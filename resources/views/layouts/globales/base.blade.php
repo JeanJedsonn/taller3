@@ -21,13 +21,13 @@
         <!-- Cabecera -->
         {{-- No se hace un template porque se usa en toda la pagina --}}
         <header>
-            <h1>Tecnologías Web - Taller 1</h1>
+            <h1>Tecnologías Web - Taller 3</h1>
 
             <!-- menu de navegacion -->
             <nav class="menu-principal">
                 <div>
                     <ul>
-                        {{-- Si no está logueado, desactivamos visualmente los botones --}}
+                        {{-- Si no esta logueado, desactivamos visualmente los botones --}}
                         @php
                             $isDisabled = !Auth::check();
                             $disableStyle = $isDisabled ? 'color: #94a3b8; pointer-events: none; opacity: 0.5; cursor: not-allowed; text-decoration: none;' : '';
@@ -91,7 +91,7 @@
     
         <!-- pide de pagina-->
         <footer>
-            <p>&copy; 2026 Taller 1 - Desarrollo Web | Fecha de entrega: 12-02-2026</p>
+            <p>&copy; 2026 Taller 3 - Desarrollo Web | Fecha de entrega: 31-03-2026</p>
             <div class="validacion">
                 <a href="http://validator.w3.org/check?uri=referer" target="_blank">
                     <img src="{{ asset('img/html401.png') }}" alt="Valid HTML 4.01" height="31" width="88">
