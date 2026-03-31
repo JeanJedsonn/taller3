@@ -13,7 +13,7 @@ class ContactoController extends Controller
     public function index()
     {
         $contactos = \App\Models\Contacto::all();
-        return view('rutas_taller3.contacto', compact('contactos'));
+        return view('rutas_taller3.contacto.index', compact('contactos'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ContactoController extends Controller
      */
     public function create()
     {
-        return view('rutas_taller3.formulario');
+        return view('rutas_taller3.contacto.formulario');
     }
 
     /**
@@ -41,7 +41,7 @@ class ContactoController extends Controller
     public function show(string $id)
     {
         $contacto = \App\Models\Contacto::findOrFail($id);
-        return response()->json($contacto);
+        return view('rutas_taller3.contacto.mostrar', compact('contacto'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ContactoController extends Controller
     public function edit(string $id)
     {
         $contacto = \App\Models\Contacto::findOrFail($id);
-        return view('rutas_taller3.formulario', compact('contacto'));
+        return view('rutas_taller3.contacto.formulario', compact('contacto'));
     }
 
     /**
@@ -91,9 +91,11 @@ class ContactoController extends Controller
             'edad' => 'required|integer|min:15|max:90',
             'genero' => 'required|in:femenino,masculino,otros',
             'numero_telefono' => 'required|array|max:2',
-            'numero_telefono.*' => 'required|string|regex:/^\d{4}-\d{7}$/',
+            'numero_telefono.0' => 'required|string|regex:/^\d{4}-\d{7}$/',
+            'numero_telefono.1' => 'nullable|string|regex:/^\d{4}-\d{7}$/',
             'correo_electronico' => 'required|array|max:2',
-            'correo_electronico.*' => 'required|email|max:255',
+            'correo_electronico.0' => 'required|email|max:255',
+            'correo_electronico.1' => 'nullable|email|max:255',
             'estado_civil' => 'required|in:soltero,casado,divorciado,concubinato,viudo',
             'direccion' => 'required|string|max:500',
             'departamento' => 'required|string|max:255',

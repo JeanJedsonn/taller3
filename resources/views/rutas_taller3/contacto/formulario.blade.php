@@ -1,5 +1,6 @@
 @extends('layouts.globales.base')
 
+<!-- agrega mas estilos al css base -->
 @push('css')
     <link rel="stylesheet" href="{{ asset('css/taller2/main.css') }}">
 @endpush
@@ -14,7 +15,8 @@
         <a href="{{ route('contacto') }}" class="btn-gray" style="text-decoration: none; padding: 10px 15px; color: white; display: inline-block; border-radius: 6px;">&laquo; Volver a la Lista</a>
     </div>
 
-    <!-- formulario para editar / crear -->
+    
+    <!-- Campo para mostrar los errores -->
     @if ($errors->any())
         <div style="background: #fee2e2; border: 1px solid #ef4444; color: #b91c1c; padding: 10px; border-radius: 6px; margin-bottom: 20px; width: 100%; max-width: 650px;">
             <ul style="margin: 0; padding-left: 20px;">
@@ -25,14 +27,18 @@
         </div>
     @endif
 
+    <!-- mensaje de exito -->
     @if (session('success'))
         <div style="background: #d1fae5; border: 1px solid #10b981; color: #047857; padding: 10px; border-radius: 6px; margin-bottom: 20px; width: 100%; max-width: 650px;">
             {{ session('success') }}
         </div>
     @endif
 
+    <!-- formulario para editar / crear -->
     <form id="dynamic-form" class="form-grid" action="{{ isset($contacto) ? route('contactos.update', $contacto->id) : route('contactos.store') }}" method="POST" style="width: 100%; max-width: 650px;">
         @csrf
+        
+        <!-- si es editar, se agrega el metodo put -->
         @if(isset($contacto))
             @method('PUT')
         @endif
@@ -88,10 +94,12 @@
         <!-- numeros de telefono -->
         <div class="form-group full-width">
             <label for="input_tel1">Números de Teléfono</label>
-            @php 
+
+            @php
                 $tel1 = old('numero_telefono.0', $contacto->numero_telefono[0] ?? '');
                 $tel2 = old('numero_telefono.1', $contacto->numero_telefono[1] ?? '');
             @endphp
+
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <input type="text" id="input_tel1" name="numero_telefono[]" placeholder="Principal (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel1 }}" required>
                 <input type="text" id="input_tel2" name="numero_telefono[]" placeholder="Secundario (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel2 }}">

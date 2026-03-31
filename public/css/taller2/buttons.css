@@ -45,6 +45,46 @@
     width: auto;
 }
 
+
+/* Acciones de la tabla */
+.taller2-scope .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.taller2-scope .btn-action,
+.taller2-scope button.btn-action {
+    display: inline-block;
+    width: 85px;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+    padding: 6px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    line-height: normal;
+}
+
+.taller2-scope .btn-show { background: #3b82f6; }
+.taller2-scope .btn-show:hover { background: #2563eb; }
+
+.taller2-scope .btn-edit { background: #fbbf24; color: #78350f; }
+.taller2-scope .btn-edit:hover { background: #f59e0b; }
+
+.taller2-scope .btn-delete { background: #ef4444; }
+.taller2-scope .btn-delete:hover { background: #dc2626; }
+
+.taller2-scope .form-delete {
+    margin: 0;
+}
+
 @media (max-width: 600px) {
     .taller2-scope .submit-btn {
         grid-column: span 1;
