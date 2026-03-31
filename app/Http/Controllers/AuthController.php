@@ -30,6 +30,10 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'security_question_1' => ['required', 'string'],
+            'security_answer_1' => ['required', 'string', 'max:255'],
+            'security_question_2' => ['required', 'string', 'different:security_question_1'],
+            'security_answer_2' => ['required', 'string', 'max:255'],
         ]);
 
         // 2. Creación: Insertamos el usuario en la base de datos usando el Modelo.
@@ -38,6 +42,10 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'security_question_1' => $request->security_question_1,
+            'security_answer_1' => strtolower(trim($request->security_answer_1)),
+            'security_question_2' => $request->security_question_2,
+            'security_answer_2' => strtolower(trim($request->security_answer_2)),
         ]);
 
         // 3. Autenticación automática: Una vez creado, hacemos "login" de inmediato para que 
@@ -103,5 +111,73 @@ class AuthController extends Controller
 
         // 4. Finalmente, lo devolvemos a la página pública inicial.
         return redirect('/')->with('success', 'Sesión cerrada. ¡Hasta pronto!');
+    }
+
+    /**
+     * Muestra el formulario para ingresar correo de recuperación
+     */
+    public function showForgotPassword()
+    {
+        return view('auth.forgot-password');
+    }
+
+    /**
+     * Valida si el correo existe y muestra las preguntas secretas
+     */
+    public function verifyEmailAndShowQuestions(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+        $user = User::where('email', $request->email)->first();
+
+        // 1. Verificamos que el email exista en la BD
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'email' => 'No encontramos ninguna cuenta registrada con este correo.',
+            ]);
+        }
+
+        // 2. Comprobamos que el usuario configuró preguntas de seguridad
+        if (empty($user->security_question_1) || empty($user->security_question_2)) {
+            throw ValidationException::withMessages([
+                'email' => 'Esta cuenta es antigua y no tiene preguntas de seguridad configuradas. Contacta al administrador.',
+            ]);
+        }
+
+        // Si existe y tiene preguntas, le mandamos a la Vista de Responder
+        return view('auth.recover-password', compact('user'));
+    }
+
+    /**
+     * Procesa las respuestas secretas y actualiza la contraseña
+     */
+    public function resetPasswordWithAnswers(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'security_answer_1' => 'required|string',
+            'security_answer_2' => 'required|string',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        // 1. Estandarizamos las respuestas (minúsculas y sin espacios al inicio/final)
+        $answer1 = strtolower(trim($request->security_answer_1));
+        $answer2 = strtolower(trim($request->security_answer_2));
+
+        // 2. Comparamos estrictamente
+        if ($user->security_answer_1 !== $answer1 || $user->security_answer_2 !== $answer2) {
+            // Si falla, volvemos a inyectar la Vista explícitamente pero pasándole Error.
+            // Asi evitamos el problema del "redirect back" en un form de 2-pasos.
+            return view('auth.recover-password', compact('user'))
+                   ->withErrors(['security_answer_1' => '¡Error! Una o ambas respuestas son incorrectas.']);
+        }
+
+        // 3. Todo coincide perfectamente. Machacamos la clave con un nuevo Hash.
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // 4. Redirigimos al Login triunfalmente.
+        return redirect('/login')->with('success', '¡Contraseña restablecida correctamente! Ya puedes iniciar sesión con tu nueva clave.');
     }
 }

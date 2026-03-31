@@ -29,14 +29,14 @@
             <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Correo Electrónico:</label>
             {{-- value="{{ old('email') }}" permite que, si recarga por error, el usuario no pierda lo que ya escribió --}}
             <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 98%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
 
         {{-- Entrada de la Contraseña --}}
         <div style="margin-bottom: 20px;">
             <label for="password" style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña:</label>
             <input type="password" id="password" name="password" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                   style="width: 98%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
 
         {{-- Botón de Enviar --}}
@@ -48,6 +48,10 @@
     </form>
     
     <div style="margin-top: 15px; text-align: center;">
+        ¿Olvidaste tu contraseña? <a href="{{ url('/recuperar-cuenta') }}" style="color: #ef4444; text-decoration: none;">Recupérala aquí</a>
+    </div>
+
+    <div style="margin-top: 10px; text-align: center;">
         ¿No tienes cuenta? <a href="{{ url('/registro') }}" style="color: #2563eb; text-decoration: none;">Regístrate aquí</a>
     </div>
 </div>

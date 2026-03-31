@@ -19,6 +19,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
     // POST /login se encarga de procesar el inicio de sesión
     Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+    // Recuperación de Contraseña Manual
+    Route::get('/recuperar-cuenta', [AuthController::class, 'showForgotPassword'])->name('forgot-password');
+    Route::post('/recuperar-cuenta', [AuthController::class, 'verifyEmailAndShowQuestions']);
+    Route::post('/restablecer-password', [AuthController::class, 'resetPasswordWithAnswers']);
 });
 
 // 2. Grupo 'auth' (Autenticados):

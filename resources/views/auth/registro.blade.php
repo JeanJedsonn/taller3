@@ -54,6 +54,43 @@
         </div>
 
         {{-- Botón Enviar --}}
+        <br>
+        <div style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <h4 style="margin-top: 0; color: #334155; margin-bottom: 15px;">Recuperación de Contraseña</h4>
+
+            {{-- Pregunta de Seguridad 1 --}}
+            <div style="margin-bottom: 15px;">
+                <label for="security_question_1" style="display: block; margin-bottom: 5px; font-weight: bold;">Pregunta de Seguridad 1:</label>
+                <select id="security_question_1" name="security_question_1" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="" disabled selected>Selecciona una pregunta...</option>
+                    <option value="¿Nombre de tu primera mascota?" @selected(old('security_question_1') == '¿Nombre de tu primera mascota?')>¿Nombre de tu primera mascota?</option>
+                    <option value="¿Ciudad donde naciste?" @selected(old('security_question_1') == '¿Ciudad donde naciste?')>¿Ciudad donde naciste?</option>
+                    <option value="¿Segundo nombre de tu madre?" @selected(old('security_question_1') == '¿Segundo nombre de tu madre?')>¿Segundo nombre de tu madre?</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="security_answer_1" style="display: block; margin-bottom: 5px; font-weight: bold;">Respuesta 1:</label>
+                <input type="text" id="security_answer_1" name="security_answer_1" value="{{ old('security_answer_1') }}" required 
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            {{-- Pregunta de Seguridad 2 --}}
+            <div style="margin-bottom: 15px;">
+                <label for="security_question_2" style="display: block; margin-bottom: 5px; font-weight: bold;">Pregunta de Seguridad 2:</label>
+                <select id="security_question_2" name="security_question_2" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="" disabled selected>Selecciona una pregunta diferente...</option>
+                    <option value="¿Nombre de tu profesor favorito?" @selected(old('security_question_2') == '¿Nombre de tu profesor favorito?')>¿Nombre de tu profesor favorito?</option>
+                    <option value="¿Cuál es tu color favorito?" @selected(old('security_question_2') == '¿Cuál es tu color favorito?')>¿Cuál es tu color favorito?</option>
+                    <option value="¿Película favorita de la infancia?" @selected(old('security_question_2') == '¿Película favorita de la infancia?')>¿Película favorita de la infancia?</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="security_answer_2" style="display: block; margin-bottom: 5px; font-weight: bold;">Respuesta 2:</label>
+                <input type="text" id="security_answer_2" name="security_answer_2" value="{{ old('security_answer_2') }}" required 
+                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+        </div>
+
         <button type="submit" 
                 style="width: 100%; background: #10b981; color: white; border: none; padding: 12px; border-radius: 4px; font-size: 16px; cursor: pointer;">
             Registrarme Ahora
