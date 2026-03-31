@@ -72,9 +72,9 @@
             <label for="select_genero">Género</label>
             @php $generoActual = old('genero', $contacto->genero ?? ''); @endphp
             <select id="select_genero" name="genero" required>
-                <option value="femenino" {{ $generoActual == 'femenino' ? 'selected' : '' }}>Femenino</option>
-                <option value="masculino" {{ $generoActual == 'masculino' ? 'selected' : '' }}>Masculino</option>
-                <option value="otros" {{ $generoActual == 'otros' ? 'selected' : '' }}>Otros</option>
+                <option value="femenino" @selected($generoActual == 'femenino')>Femenino</option>
+                <option value="masculino" @selected($generoActual == 'masculino')>Masculino</option>
+                <option value="otros" @selected($generoActual == 'otros')>Otros</option>
             </select>
         </div>
 
@@ -83,11 +83,11 @@
             <label for="select_estado_civil">Estado Civil</label>
             @php $civilActual = old('estado_civil', $contacto->estado_civil ?? ''); @endphp
             <select id="select_estado_civil" name="estado_civil" required>
-                <option value="soltero" {{ $civilActual == 'soltero' ? 'selected' : '' }}>Soltero</option>
-                <option value="casado" {{ $civilActual == 'casado' ? 'selected' : '' }}>Casado</option>
-                <option value="divorciado" {{ $civilActual == 'divorciado' ? 'selected' : '' }}>Divorciado</option>
-                <option value="concubinato" {{ $civilActual == 'concubinato' ? 'selected' : '' }}>Concubinato</option>
-                <option value="viudo" {{ $civilActual == 'viudo' ? 'selected' : '' }}>Viudo</option>
+                <option value="soltero" @selected($civilActual == 'soltero')>Soltero</option>
+                <option value="casado" @selected($civilActual == 'casado')>Casado</option>
+                <option value="divorciado" @selected($civilActual == 'divorciado')>Divorciado</option>
+                <option value="concubinato" @selected($civilActual == 'concubinato')>Concubinato</option>
+                <option value="viudo" @selected($civilActual == 'viudo')>Viudo</option>
             </select>
         </div>
 
@@ -96,13 +96,13 @@
             <label for="input_tel1">Números de Teléfono</label>
 
             @php
-                $tel1 = old('numero_telefono.0', $contacto->numero_telefono[0] ?? '');
-                $tel2 = old('numero_telefono.1', $contacto->numero_telefono[1] ?? '');
+                $tel1 = old('numero_telefono_1', $contacto->numero_telefono_1 ?? '');
+                $tel2 = old('numero_telefono_2', $contacto->numero_telefono_2 ?? '');
             @endphp
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <input type="text" id="input_tel1" name="numero_telefono[]" placeholder="Principal (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel1 }}" required>
-                <input type="text" id="input_tel2" name="numero_telefono[]" placeholder="Secundario (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel2 }}">
+                <input type="text" id="input_tel1" name="numero_telefono_1" placeholder="Principal (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel1 }}" required>
+                <input type="text" id="input_tel2" name="numero_telefono_2" placeholder="Secundario (0000-0000000)" pattern="^\d{4}-\d{7}$" value="{{ $tel2 }}">
             </div>
         </div>
 
@@ -110,12 +110,12 @@
         <div class="form-group full-width">
             <label for="input_correo1">Correos Electrónicos</label>
             @php 
-                $cor1 = old('correo_electronico.0', $contacto->correo_electronico[0] ?? '');
-                $cor2 = old('correo_electronico.1', $contacto->correo_electronico[1] ?? '');
+                $cor1 = old('correo_electronico_1', $contacto->correo_electronico_1 ?? '');
+                $cor2 = old('correo_electronico_2', $contacto->correo_electronico_2 ?? '');
             @endphp
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <input type="email" id="input_correo1" name="correo_electronico[]" placeholder="Correo Principal" value="{{ $cor1 }}" required>
-                <input type="email" id="input_correo2" name="correo_electronico[]" placeholder="Correo Secundario" value="{{ $cor2 }}">
+                <input type="email" id="input_correo1" name="correo_electronico_1" placeholder="Correo Principal" value="{{ $cor1 }}" required>
+                <input type="email" id="input_correo2" name="correo_electronico_2" placeholder="Correo Secundario" value="{{ $cor2 }}">
             </div>
         </div>
 

@@ -6,15 +6,23 @@
 header {
     /* imagen de fondo */
     background-image: linear-gradient(135deg, #a5b4fa 0%, #764ba2 100%);
-    background-size: cover;         /* cubre todo el header */
-    background-position: center;    /* centra la imagen */
+    background-size: cover;
+    /* cubre todo el header */
+    background-position: center;
+    /* centra la imagen */
 
-    padding: 30px 20px;             /* padding superior e inferior 30px, padding izquierdo y derecho 20px*/
-    color: white;                 /* color blanco del texto */
-    text-align: center;             /* texto centrado */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* sombra */
-    border-radius: 20px;            /* bordes redondeados */
-    margin: 20px;                   /* margen superior e inferior 20px, margen izquierdo y derecho 20px*/
+    padding: 30px 20px;
+    /* padding superior e inferior 30px, padding izquierdo y derecho 20px*/
+    color: white;
+    /* color blanco del texto */
+    text-align: center;
+    /* texto centrado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* sombra */
+    border-radius: 20px;
+    /* bordes redondeados */
+    margin: 20px;
+    /* margen superior e inferior 20px, margen izquierdo y derecho 20px*/
 }
 
 /* estilo del h1 en el header*/

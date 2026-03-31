@@ -12,16 +12,13 @@ class Contacto extends Model
         'apellido',
         'edad',
         'genero',
-        'numero_telefono',
-        'correo_electronico',
+        'numero_telefono_1',
+        'numero_telefono_2',
+        'correo_electronico_1',
+        'correo_electronico_2',
         'estado_civil',
         'direccion',
         'departamento',
         'cargo',
-    ];
-
-    protected $casts = [
-        'numero_telefono' => 'array',
-        'correo_electronico' => 'array',
     ];
 }

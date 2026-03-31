@@ -32,20 +32,18 @@
                 
                 <p style="margin: 10px 0 5px 0;"><strong>Teléfonos:</strong></p>
                 <ul style="color: #475569; margin: 0 0 10px 0; padding-left: 20px;">
-                    @foreach($contacto->numero_telefono as $tel)
-                        @if(!empty($tel))
-                            <li>{{ $tel }}</li>
-                        @endif
-                    @endforeach
+                    <li>{{ $contacto->numero_telefono_1 }}</li>
+                    @if($contacto->numero_telefono_2)
+                        <li>{{ $contacto->numero_telefono_2 }}</li>
+                    @endif
                 </ul>
 
                 <p style="margin: 10px 0 5px 0;"><strong>Correos Electrónicos:</strong></p>
                 <ul style="color: #475569; margin: 0 0 10px 0; padding-left: 20px;">
-                    @foreach($contacto->correo_electronico as $correo)
-                        @if(!empty($correo))
-                            <li>{{ $correo }}</li>
-                        @endif
-                    @endforeach
+                    <li>{{ $contacto->correo_electronico_1 }}</li>
+                    @if($contacto->correo_electronico_2)
+                        <li>{{ $contacto->correo_electronico_2 }}</li>
+                    @endif
                 </ul>
 
                 <p style="margin: 10px 0;"><strong>Dirección:</strong> <span style="color: #475569;">{{ $contacto->direccion }}</span></p>

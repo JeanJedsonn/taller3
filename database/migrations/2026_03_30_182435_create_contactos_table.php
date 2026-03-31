@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('apellido');
             $table->integer('edad');
             $table->enum('genero', ['femenino', 'masculino', 'otros']);
-            $table->json('numero_telefono');
-            $table->json('correo_electronico');
+            $table->string('numero_telefono_1');
+            $table->string('numero_telefono_2')->nullable();
+            $table->string('correo_electronico_1');
+            $table->string('correo_electronico_2')->nullable();
             $table->enum('estado_civil', ['soltero', 'casado', 'divorciado', 'concubinato', 'viudo']);
             $table->string('direccion');
             $table->string('departamento');

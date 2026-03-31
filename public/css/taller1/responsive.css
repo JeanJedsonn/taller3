@@ -20,6 +20,12 @@
     .menu-principal ul {
         flex-direction: column;
         gap: 5px;
+        width: 100%;
+    }
+
+    .menu-principal ul li {
+        width: 100%;
+        margin: auto;
     }
 
     .menu-principal a {
