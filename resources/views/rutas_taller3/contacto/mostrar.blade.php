@@ -6,7 +6,7 @@
 @endpush
 
 @section('contenido')
-<div class="taller2-scope" style="max-width: 800px; padding: 20px; font-family: sans-serif;">
+<div class="taller2-scope" style="margin: auto; max-width: 800px; padding: 20px; font-family: sans-serif;">
     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 20px;">
         <h2 id="form-title" style="margin: 0; color: #1e293b;">Detalles del Contacto</h2>
         <a href="{{ route('contacto') }}" class="btn-gray" style="text-decoration: none; padding: 10px 15px; color: white; display: inline-block; border-radius: 6px; background: #64748b; margin-top: 0;">&laquo; Volver</a>

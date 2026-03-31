@@ -6,12 +6,12 @@
 @endpush
 
 @section('contenido')
-<div class="taller2-scope">
+<div class="taller2-scope" style="">
     <!-- titulo -->
     <h2 id="form-title">{{ isset($contacto) ? 'Editar Contacto' : 'Crear Nuevo Contacto' }}</h2>
 
     <!-- boton regresar -->
-    <div style="width: 100%; max-width: 650px; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 650px; margin: 20px auto;">
         <a href="{{ route('contacto') }}" class="btn-gray" style="text-decoration: none; padding: 10px 15px; color: white; display: inline-block; border-radius: 6px;">&laquo; Volver a la Lista</a>
     </div>
 
@@ -35,7 +35,7 @@
     @endif
 
     <!-- formulario para editar / crear -->
-    <form id="dynamic-form" class="form-grid" action="{{ isset($contacto) ? route('contactos.update', $contacto->id) : route('contactos.store') }}" method="POST" style="width: 100%; max-width: 650px;">
+    <form id="dynamic-form" class="form-grid" action="{{ isset($contacto) ? route('contactos.update', $contacto->id) : route('contactos.store') }}" method="POST" style="margin: auto; width: 100%; max-width: 650px;">
         @csrf
         
         <!-- si es editar, se agrega el metodo put -->
