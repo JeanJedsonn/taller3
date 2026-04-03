@@ -1,3 +1,10 @@
+# Taller 3 Web
+
+### Alumnos
+
+- Luigi Quero: 30.009.785
+- Jeanmarco Alarcon: 27.117.926
+
 # Requisitos Previos
 
 Este documento detalla los pasos necesarios para configurar el entorno local y desplegar el proyecto correctamente.
@@ -42,14 +49,10 @@ composer install
 
 **4.** El sitio será accesible en: **`http://localhost/taller3/public`**.
 
-## Pasos para ejecutar
-
-Una vez elegido el servidor, abre una terminal en la carpeta raíz del proyecto y sigue estos comandos:
+Una vez elegido el servidor, abre una terminal en la carpeta raíz del proyecto y sigue estos comandos
 
 ```
 composer install
-npm install
-npm run dev
 ```
 
 # Guía de Instalación - Taller 3 Con artisan
@@ -61,8 +64,17 @@ npm run dev
 **3.** Ejecuta el comando:
 
 ```
+composer install
+```
+
+```
 php artisan serve
-npm run dev
+```
+
+En caso de fallar por tener los puertos ocupados o con la direccion de PHP mal configurada, usar
+
+```
+php -S localhost:8000 -t public
 ```
 
 **4.** El sitio será accesible en: `http://127.0.0.1:8000`
