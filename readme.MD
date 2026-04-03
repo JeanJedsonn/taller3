@@ -52,7 +52,7 @@ npm install
 npm run dev
 ```
 
-### Guía de Instalación - Taller 3 Con artisan
+# Guía de Instalación - Taller 3 Con artisan
 
 **1.** Abre una terminal en la raíz del proyecto.
 
