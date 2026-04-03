@@ -1,18 +1,21 @@
-# Guía de Instalación - Taller 3 Con HERD
+# Requisitos Previos
 
 Este documento detalla los pasos necesarios para configurar el entorno local y desplegar el proyecto correctamente.
 
-## Requisitos Previos
+### Clonar o Descargar el Proyecto
 
-1. **Laravel Herd (Recomendado para Windows):**
-   Descarga e instala Herd desde: [https://herd.laravel.com/windows](https://herd.laravel.com/windows).
-   _Herd instalará automáticamente PHP, Composer y configurará un servidor web local._
+[https://github.com/JeanJedsonn/taller3](https://github.com/JeanJedsonn/taller3)
 
-## Pasos para la Instalación
-
-### 1. Clonar o Descargar el Proyecto
+# Guía de Instalación - Taller 3 Con HERD
 
 Ubica el proyecto en tu directorio de trabajo (por ejemplo, dentro de la carpeta `Herd` que crea el instalador).
+
+### 1. Laravel Herd (Recomendado para Windows):
+
+Descarga e instala Herd desde: [https://herd.laravel.com/windows](https://herd.laravel.com/windows).
+_Herd instalará automáticamente PHP, Composer y configurará un servidor web local._
+
+## Pasos para la Instalación
 
 ### 2. Instalación de Dependencias de PHP
 
